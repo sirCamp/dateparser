@@ -93,7 +93,7 @@ DateParser.createFromFormat = function(format,date){
 		
 		case 'dd-mm-yyyy hh:MM':
 			if(DateParserValidator.isValid(/^\d{2}-\d{2}-\d{4}\s{1}\d{2}:\d{2}/,date)){
-				return new Date(date)
+				return new Date(date.slice(6,10)+"-"+date.slice(3,5)+"-"+date.slice(0,2)+" "+date.slice(11,date.leght)))
 			}
 			else{
 				throw Error("Given date is not compatible with the given type");
