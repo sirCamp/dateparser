@@ -90,6 +90,15 @@ DateParser.createFromFormat = function(format,date){
 				throw Error("Given date is not compatible with the given type");
 			}
 		break;
+		
+		case 'dd-mm-yyyy hh:MM':
+			if(DateParserValidator.isValid(/^\d{2}-\d{2}-\d{4}\s{1}\d{2}:\d{2}/,date)){
+				return new Date(date)
+			}
+			else{
+				throw Error("Given date is not compatible with the given type");
+			}
+		break;
 
 		case 'yyyyddmm':
 			if(DateParserValidator.isValid(/^\d{8}.*/,date)){ 
